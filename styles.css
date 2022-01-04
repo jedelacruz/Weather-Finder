@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Raleway|Source+Sans+Pro&display=swap");
+
+/*-----------------------------------------
+	Default Page Style
+-----------------------------------------*/
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	min-height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	margin: 0;
+	padding: 0;
+
+}
+
+h2,
+p {
+	font-family: "Montserrat", serif, sans-serif;
+	margin: 10px auto;
+	text-align: center;
+}
+
+button {
+	outline: none;
+	cursor: pointer;
+	padding: 15px 35px;
+	font-size: 20px;
+	font-family: Georgia;
+	font-weight: 300;
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	border: none;
+	color: white;
+	background: #212121;
+	font-family: "Raleway", serif, sans-serif;
+}
+
+button:hover {
+	background-color: #333;
+}
+
+button:active {
+	box-shadow: 0 0 #003300;
+	top: 6px;
+}
+
+input {
+	outline: none;
+	border: 2px solid #aaa;
+	padding: 5px 10px;
+	font-family: "Montserrat", serif, sans-serif !important;
+	font-weight: bold;
+	font-size: 14pt;
+	display: flex;
+	margin: 2rem auto;
+	min-width: 10rem;
+	min-height: 2rem;
+}
+/*-----------------------------------------
+	Error & Result Divs
+-----------------------------------------*/
+
+.error {
+	display: none;
+	color: red;
+	padding: 5px 5px;
+	margin: 30px auto;
+	border: 2px solid red;
+	text-align: center;
+	max-width: 15rem;
+	width: 25rem;
+	min-width: 19rem;
+	height: auto;
+	min-height: 2rem;
+	font-family: "Raleway", serif, sans-serif;
+	font-weight: bold;
+	box-shadow: 0 10px 15px -5px pink;
+	background: none;
+}
+
+.close {
+	float: right;
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	font-size: 20pt;
+	margin-top: -15px;
+	padding-top: 0;
+}
+
+.close:hover {
+	cursor: pointer;
+}
+
+div {
+	width: 20rem;
+}
+#userContainer {
+	border: 2px solid black;
+	padding: 10px;
+	padding-bottom: 20px;
+	width: 30rem;
+	margin: 0 auto;
+}
+
+div.resultContainer {
+	border: 2px solid #212121;
+	padding: 10px;
+	width: 30rem;
+	margin: 1rem auto;
+	display: none;
+	background-color: #212121;
+	color: white;
+}
+
+div.resultContainer > #results > h2 {
+	color: white;
+	text-align: center;
+	
+}
+
+span {
+	font-family: "Source Sans Pro", serif, sans-serif;
+	font-size: 12pt;
+}
+
+#results {
+	margin: 1rem auto;
+}
+
+span > span {
+	font-size: 12pt;
+	font-family: "Montserrat", serif, sans-serif;
+	color: white;
+	padding-right: 5px;
+}
+
+/*-----------------------------------------
+   Small Screen Compatability 
+-----------------------------------------*/
+
+@media (max-width: 400px) {
+	.error {
+		width: 19rem;
+	}
+	#userContainer {
+		width: 20rem;
+	}
+	div.resultContainer {
+		width: 20rem;
+	}
+}
+
+/*-----------------------------------------
+   Fade Animations
+-----------------------------------------*/
+
+/* Fade-In */
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@-moz-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.fade-in {
+	opacity: 0;
+	-webkit-animation: fadeIn ease-in 1;
+	-moz-animation: fadeIn ease-in 1;
+	animation: fadeIn ease-in 1;
+
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+
+	-webkit-animation-duration: 0.3s;
+	-moz-animation-duration: 0.3s;
+	animation-duration: 0.3s;
+}
+
+/* Fade-Out */
+@-webkit-keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+@-moz-keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+.fade-out {
+	opacity: 1;
+	-webkit-animation: fadeOut ease-out 1;
+	-moz-animation: fadeOut ease-out 1;
+	animation: fadeOut ease-out 1;
+
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+
+	-webkit-animation-duration: 0.3s;
+	-moz-animation-duration: 0.3s;
+	animation-duration: 0.3s;
+}

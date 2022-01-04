@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        
+        <!--
+→  Don't technically need all proper html setup 
+   since codepen does it for us ie. <html> etc.
+→  <meta> tags are still useful
+→  Codepen has <meta> tag settings
+   under the HTML tab.
+-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Codepen get the weatehr API call example">
+  <meta name="keywords" content="HTML, CSS, JavaScript, openweathermap, API, API calls, weather API, codepen API example">
+  <meta name="author" content="rforcier2">
+	<title>Weather Checker</title>
+</head>
+
+<!--User interaction container-->
+<div id="userContainer">
+	<h2>Check the weather in 1 click!</h2>
+	<p>Type in your city and click the button.</p>
+
+	
+	<!--/errorContainer-->
+	<input type="text" id="userInput" class="userInput" placeholder="Orlando" />
+	<!--errorContainer-->
+	<div class="error" id="errorContainer">
+        Please fix the following error(s):
+       <div id="error"></div>
+   </div>
+   
+    <button type="button" class="rounded" id="getWeatherButton">Get Weather</button>
+
+    
+</div>
+<!--Results-->
+<div class="container resultContainer" id="resultContainer">
+	<div id="results"></div>
+</div>
+        
+        <script src="index.js" async defer></script>
+    </body>
+</html>
