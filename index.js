@@ -1,47 +1,9 @@
- /*-----------------------------------------
- * rforcier2 API Weather Codepen JS 
- * 
- * version:   1.0 
- * date:      08/06/2021 
- * author:    https://codepen.io/rforcier2
- * email:     n/a 
- * website:   n/a
- * version history: n/a
- *-----------------------------------------
- * resources:
- *   → Open Weather Map - https://openweathermap.org/api
- *
- * fixes:
- *   Would be more beneficial to call function w/ parameter of 
- *   city name. Making function more reusable
- *-----------------------------------------
-**/
 const getWeather = document.getElementById("getWeatherButton"),
 	userInput = document.getElementById("userInput"),
 	error = document.getElementById("error"),
 	result = document.getElementById("results"),
 	closeButtons = document.getElementsByClassName("close");
 
-/*-----------------------------------------
- *	Declaring Global Variables
- *    → Normally wouldn't use global vars, but 
- *      for just a practice example it's OK
- *		→ Allows us to compare const v. let
- *-----------------------------------------
-**/
-
-/*-----------------------------------------
- * closeButtons IIFE
- * description:   - pairs close btn with parent div to
- *                  allow "closing" div from view
- * functionality: - If there's a close button give it's parent container
- *    					    the class to fade-in and fade-out
- *								- On click give parent element display value none
- *								- Set timeout to see fade animation
- *                - Also set to be an IIFE (es6 syntax) to pair
- *                  immediately on page load
- *-----------------------------------------
-**/
 (closeButtons =>{
 	closeButtons = document.getElementsByClassName("close");
 	for (let each of closeButtons) {
@@ -63,23 +25,8 @@ const showErrors = el => {
 	}
 };
 
-/*-----------------------------------------
- * convertTemp()
- * Temp from openweathermap comes in Kelvin,
- * we need U.S. Units (◦F - can you tell where I'm from?)
- *-----------------------------------------
-**/
 const convertTemp = K => (1.8 * (K - 273) + 32).toFixed(2);
 
-/*-----------------------------------------
- * convertTime()
- * description: - Converts from OpenWeatherMap time (UK in this case)
- * 								to the local time (only hours change)
- * function: 		- Regex parses the time as it comes from the source
- * 							- We retrieve our user's current (h)our and replace the
- * 								source hour (sH) with user's.
- *-----------------------------------------
-**/
 const convertTime = time => {
 	let re = /(?:[01]\d|2[0123]):(?:[012345]\d):(?:[012345]\d)/g,
 		h = `${new Date().getHours()}`, 
@@ -90,49 +37,21 @@ const convertTime = time => {
 	return newTime;
 };
 
-/*-----------------------------------------
- * String Prototype Function
- * To convert our city name to proper case
- * regardless of how it is input by user:
- *-----------------------------------------
- */
 String.prototype.toProperCase = function() {
 	return this.replace(/\w\S*/g, function(txt) {
 		return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 	});
 };
 
-/*-----------------------------------------
- * API call will do it for us,
- * but we should be *extra* sure and replace
- * whitespace in city names as %20
- *-----------------------------------------
- */
 String.prototype.fixWhiteSpace = function() {
 	return this.replace(/ /g, "%20");
 };
 
-/*-----------------------------------------
- *	Window / Button Functionality:
- *  Really unneccesary, but for the sake of quick exercise
- *  this will do in a pinch
- * -----------------------------------------
-**/
 window.onload = function() {
 	//getWeatherData('London');
 	// Ideal use of function in future
 };
 
-
-/*-----------------------------------------
- * getWeatherData() => main function for retrieving data.
- * →  This function fetches weather data via
- *    API call to OpenWeatherMap (https://openweathermap.org)
- * →  We call the API with our city name and public key.
- * →  The info we get back is parsed as JSON ( .json() )
- * →  Then set results div and place in chosen elements
- *-----------------------------------------
-**/
 const getWeatherData = () => {
 	let city = userInput.value.trim();
 	let publicKey = `3dbbfca50d3674cc4510970916791fb0`;
@@ -187,11 +106,6 @@ getWeather.onclick = function() {
 	getWeatherData();
 };
 
-/* → Function to submit if user hits enter while 
- *   typing in the input box.
- * → Common practice to accept 'enter' or 'return'
- *   keys as submit on forms
-**/
 userInput.onkeydown = function(e) {
 	if (e.key === 'Enter') getWeatherData();
 };
